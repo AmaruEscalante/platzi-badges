@@ -1,0 +1,21 @@
+.Badges__element{
+    display: flex;
+    background: #FFFFFF;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.10);
+    border-radius: 4px;
+    padding: 5px;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.Badges_list-avatar{
+    border-radius: 50%;
+}
+
+.Badges_list-content{
+    margin-left: 1rem;
+}
+
+.Badge_twitter-logo{
+    height: 10px;
+}
