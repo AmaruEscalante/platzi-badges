@@ -12,7 +12,7 @@ export default function Landing(){
                     <div className="row justify-content-center align-items-center">
                         <div className="Landing__col col-12 col-md-4">
                             <img className="img-fluid" src={confLogo} alt=""/>
-                            <h1 class="fw-bold">Badge Management System</h1>
+                            <h1 className="fw-bold">Badge Management System</h1>
                             <Link to="/badges" className="btn btn-primary">
                                 Start Now
                             </Link>

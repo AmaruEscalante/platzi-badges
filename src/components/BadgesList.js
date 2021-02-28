@@ -9,12 +9,12 @@ class BadgesList extends Component {
             <ul className="list-unstyled">
                 {this.props.badges.map((badge) => {
                     return (
-                        <li className="Badges__element">
-                            <img className="Badges_list-avatar" src="https://www.gravatar.com/avatar/214ed15d68ace3965642162f8d2e84?d=identicon" alt=""/>
+                        <li key={badge.id} className="Badges__element">
+                            <img height="100px" className="Badges_list-avatar" src={badge.image} alt=""/>
                             <div className="Badges_list-content">
-                                <span className="fw-bold">{badge.firstName} {badge.lastName}</span> <br/>
-                                <span style={{color: "#03A9F4"}}><img height="20px" src={twitterLogo} alt=""/> @{badge.twitter}</span> <br/>
-                                <span>{badge.career}</span>
+                                <span className="fw-bold">{badge.name}</span> <br/>
+                                <span style={{color: "#03A9F4"}}><img height="20px" src={twitterLogo} alt=""/> @{badge.name}</span> <br/>
+                                <span>{badge.location.name}</span>
                             </div>
                         </li>
                     )

@@ -35,10 +35,10 @@ class BadgeNew extends Component{
                             <Badge 
                             firstName={this.state.form.firstName}
                             lastName={this.state.form.lastName} 
-                            career={this.state.career}
-                            email={this.state.email}
+                            career={this.state.form.career}
+                            email={this.state.form.email}
                             gravatarUrl="https://www.gravatar.com/avatar/21594ed15d68ace3965642162f8d2e84?d=identicon" 
-                            twitter={this.state.twitter}/>
+                            twitter={this.state.form.twitter}/>
                         </div>
                         <div className="col-6">
                             <BadgeForm onChange={this.handleChange} formValues={this.state.form}/>
