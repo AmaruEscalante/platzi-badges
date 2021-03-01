@@ -12,16 +12,16 @@ class BadgeForm extends Component {
         console.log('button was clicked');
     }
 
-    handleSubmit = e => {
-        e.preventDefault();
-        console.log(this.state)
-    }
+    // handleSubmit = e => {
+    //     e.preventDefault();
+    //     console.log(this.state)
+    // }
 
     render() {
 
         return <div>
             <h1>New Attendant</h1>
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.props.onSubmit}>
                 <div className="mb-3">
                     <label className="form-label"  htmlFor="">First Name</label>
                     <input 
@@ -60,8 +60,8 @@ class BadgeForm extends Component {
                     onChange={this.props.onChange} 
                     className="form-control" 
                     type="text" 
-                    name="career"
-                    value ={this.props.formValues.career}
+                    name="jobTitle"
+                    value ={this.props.formValues.jobTitle}
                     />
                 </div>
 
