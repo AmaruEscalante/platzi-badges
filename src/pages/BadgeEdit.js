@@ -5,9 +5,9 @@ import PageLoading from "../components/PageLoading";
 import header from "../images/badge-header.svg";
 import Badge from "../components/Badge";
 import api from "../api";
-import "./styles/BadgeNew.css";
+import "./styles/BadgeEdit.css";
 
-class BadgeNew extends Component {
+class BadgeEdit extends Component {
   state = {
     loading: false,
     error: null,
@@ -48,9 +48,9 @@ class BadgeNew extends Component {
     }
     return (
       <Fragment>
-        <div className="BadgeNew__hero">
+        <div className="BadgeEdit__hero">
           <img
-            className="BadgeNew__hero-image img-fluid"
+            className="BadgeEdit__hero-image img-fluid"
             src={header}
             alt="Logo"
           />
@@ -83,4 +83,4 @@ class BadgeNew extends Component {
   }
 }
 
-export default BadgeNew;
+export default BadgeEdit;
