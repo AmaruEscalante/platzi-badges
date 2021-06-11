@@ -6,6 +6,9 @@ import './styles/BadgesList.css'
 
 class BadgesList extends Component {
     render() {
+        
+        const badgeList = this.props.badges.slice(0).reverse()
+
         if (this.props.badges.length === 0){
             return <Fragment>
                 <h3>We didn't found any badge</h3>
@@ -18,7 +21,7 @@ class BadgesList extends Component {
         return (
             <Fragment>
             <ul className="list-unstyled">
-                {this.props.badges.map((badge) => {
+                {badgeList.map((badge) => {
                     return (
                         <li key={badge.id} className="Badges__element">
                             <Gravatar className="Badges_list-avatar" email={badge.email} />
