@@ -9,7 +9,7 @@ import "./styles/BadgeEdit.css";
 
 class BadgeEdit extends Component {
   state = {
-    loading: false,
+    loading: true,
     error: null,
     form: {
       firstName: "",
@@ -18,6 +18,21 @@ class BadgeEdit extends Component {
       jobTitle: "",
       twitter: "",
     },
+  };
+
+  componentDidMount() {
+    this.fetchData();
+  }
+
+  fetchData = async (e) => {
+    this.setState({ loading: true, error: null });
+
+    try {
+      const data = await api.badges.read(this.props.match.params.badgeId);
+      this.setState({ loading: false, form: data });
+    } catch (e) {
+      this.setState({ loading: false, error: true });
+    }
   };
 
   handleChange = (e) => {
@@ -34,7 +49,7 @@ class BadgeEdit extends Component {
     this.setState({ loading: true, error: null });
 
     try {
-      await api.badges.create(this.state.form);
+      await api.badges.update(this.props.match.params.badgeId ,this.state.form);
       this.setState({ loading: false });
       this.props.history.push("/badges");
     } catch (error) {
@@ -69,6 +84,8 @@ class BadgeEdit extends Component {
               />
             </div>
             <div className="col-6">
+              <h1>Edit Attendant</h1>
+
               <BadgeForm
                 onSubmit={this.handleSubmit}
                 onChange={this.handleChange}
