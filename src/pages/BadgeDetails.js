@@ -1,5 +1,5 @@
 // Dependencies
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import ReactDOM from "react-dom";
 // Components
@@ -10,8 +10,20 @@ import DeleteBadgeModal from "../components/DeleteBadgeModal";
 import confLogo from "../images/platziconf-logo.svg";
 import "./styles/BadgeDetails.css";
 
+function useIncreaseCount(max) {
+  const [count, setCount] = useState(0);
+
+  if(count > max){
+      setCount(0);
+  }
+
+  return [count, setCount];
+}
+
 function BadgeDetails(props) {
   const badge = props.badge;
+
+  const [counter, setCounter] = useIncreaseCount(5);
 
   return (
     <div>
@@ -37,6 +49,17 @@ function BadgeDetails(props) {
           <div className="col">
             <h2>Actions</h2>
             <div>
+              {/* Prueba de React Hooks */}
+              <div>
+                <button
+                  onClick={() => {
+                    setCounter(counter + 1);
+                  }}
+                  className="btn btn-primary mb-4"
+                >
+                  Increase Counter {counter}
+                </button>
+              </div>
               <div>
                 <Link
                   className="btn btn-primary mb-4"
@@ -46,9 +69,15 @@ function BadgeDetails(props) {
                 </Link>
               </div>
               <div>
-                <button onClick={props.openModal} className="btn btn-danger">Delete</button>
-                <DeleteBadgeModal deleteBadge={props.deleteBadge} isOpen={props.isOpen} onClose={props.onClose}>
-                    <h2>Lorem ipsum dolor sit amet consectetur adipisicing</h2>
+                <button onClick={props.openModal} className="btn btn-danger">
+                  Delete
+                </button>
+                <DeleteBadgeModal
+                  deleteBadge={props.deleteBadge}
+                  isOpen={props.isOpen}
+                  onClose={props.onClose}
+                >
+                  <h2>Lorem ipsum dolor sit amet consectetur adipisicing</h2>
                 </DeleteBadgeModal>
               </div>
             </div>
